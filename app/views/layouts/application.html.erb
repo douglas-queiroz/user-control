@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="userControl">
 <head>
   <title>UserControl</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<md-content>
+		<md-toolbar>
+	      <div class="md-toolbar-tools">
+	        <h2>
+	          <span>User Control</span>
+	        </h2>
+	        <span flex></span>
+	        <md-button class="md-raised md-primary">Login</md-button>
+	        <md-button class="md-raised md-primary">Register</md-button>
+	      </div>
+	    </md-toolbar>
+		<ui-view />
+	</md-content>
 </body>
 </html>

@@ -1,0 +1,23 @@
+{
+  "name": "user-control",
+  "homepage": "https://github.com/douglas-queiroz/user-control",
+  "authors": [
+    "Douglas Queiroz <douglasq16@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "angular-material": "~0.11.4"
+  }
+}
