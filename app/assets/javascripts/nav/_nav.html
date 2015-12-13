@@ -1,0 +1,12 @@
+<md-toolbar ng-controller="NavController">
+  <div class="md-toolbar-tools">
+    <h2>
+      <span><a href="#/">User Control</a></span>
+    </h2>
+    <span flex></span>
+    <md-button ng-hide="signedIn()" class="md-raised md-primary" href="#/login" >Login</md-button>
+    <md-button ng-hide="signedIn()" class="md-raised md-primary" href="#/register">Register</md-button>
+    <h2 ng-show="signedIn()">{{ user.email }}</h2>
+    <md-button ng-show="signedIn()" class="md-raised md-primary" ng-click="logout()">Logout</md-button>
+  </div>
+</md-toolbar>
