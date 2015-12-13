@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: 'application#angular'
 
-  resources :users, only: [:index, :show]
-
-  devise_for :users
+  scope "/admin" do
+    resources :users, only: [:index, :show, :create, :update]
+  end
+  
+  devise_for :users, :controllers => {:registrations => "registrations"}
 end

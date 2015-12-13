@@ -1,7 +1,7 @@
 
   <h2 class="md-title">User List</h2>
   <md-divider></md-divider>
-  <md-button class="md-primary md-fab md-fab-top-right">
+  <md-button class="md-primary md-fab md-fab-top-right" href="#/user/new">
     NEW
   </md-button>
 
@@ -12,16 +12,16 @@
       <tr>
         <th name="Name"></th>
         <th name="Email"></th>
-        <th name="Sexo"></th>
-        <th name="Nascimento"></th>
+        <th name="Sex"></th>
+        <th name="Birth Date"></th>
       </tr>
     </thead>
     <tbody>
       <tr md-auto-select ng-repeat="user in users">
-        <td><a href="#/user/{{$index}}">{{user.nome}}</a></td>
+        <td><a href="#/user/{{$index}}">{{user.name}}</a></td>
         <td>{{user.email}}</td>
-        <td>{{user.sexo}}</td>
-        <td>{{user.nascimento}}</td>
+        <td>{{user.sex}}</td>
+        <td>{{user.birth_date}}</td>
       </tr>
     </tbody>
   </table>

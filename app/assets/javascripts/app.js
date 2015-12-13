@@ -14,8 +14,8 @@ angular.module('userControl',['ui.router', 'templates', 'ngAria', 'ngAnimate',
 				    return UserService.getAll();
 				}]}
 			})
-			.state('user', {
-				url: '/user/{id}',
+			.state('showUser', {
+				url: '/user/show/{id}',
 				templateUrl: 'user/_user.html',
 				controller: 'UserController',
 				resolve: {
@@ -23,14 +23,14 @@ angular.module('userControl',['ui.router', 'templates', 'ngAria', 'ngAnimate',
 					return UserService.get($stateParams.id);
 				}]}
 			})
+			.state('createUser', {
+				url: '/user/new',
+				templateUrl: 'newuser/_newUser.html',
+				controller: 'NewUserController'
+			})
 			.state('login', {
 				url: '/login',
 				templateUrl: 'auth/_login.html',
-				controller: 'AuthController'
-			})
-			.state('register', {
-				url: '/register',
-				templateUrl: 'auth/_register.html',
 				controller: 'AuthController'
 			});
 
