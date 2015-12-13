@@ -7,18 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<md-content>
-		<md-toolbar>
-	      <div class="md-toolbar-tools">
-	        <h2>
-	          <span>User Control</span>
-	        </h2>
-	        <span flex></span>
-	        <md-button class="md-raised md-primary">Login</md-button>
-	        <md-button class="md-raised md-primary">Register</md-button>
-	      </div>
-	    </md-toolbar>
-		<ui-view />
-	</md-content>
+	<md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          <span>User Control</span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-raised md-primary">Login</md-button>
+        <md-button class="md-raised md-primary">Register</md-button>
+      </div>
+    </md-toolbar>
+	<div style='padding: 40px;' ng-cloak>
+		<md-content>
+		    <div>
+				<ui-view />
+			</div>
+		</md-content>
+	</div>
 </body>
 </html>

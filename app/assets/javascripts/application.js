@@ -4,4 +4,5 @@
 //= require angular-aria
 //= require angular-animate
 //= require angular-material
+//= require angular-material-data-table
 //= require_tree . 
