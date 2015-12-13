@@ -1,0 +1,28 @@
+
+  <h2 class="md-title">User List</h2>
+  <md-divider></md-divider>
+  <md-button class="md-primary md-fab md-fab-top-right">
+    NEW
+  </md-button>
+
+
+<md-data-table-container>
+  <table md-data-table md-progress="deferred">
+    <thead md-order="query.order" md-trigger="onOrderChange">
+      <tr>
+        <th name="Name"></th>
+        <th name="Email"></th>
+        <th name="Sexo"></th>
+        <th name="Nascimento"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr md-auto-select ng-repeat="user in users">
+        <td><a href="#/user/{{$index}}">{{user.nome}}</a></td>
+        <td>{{user.email}}</td>
+        <td>{{user.sexo}}</td>
+        <td>{{user.nascimento}}</td>
+      </tr>
+    </tbody>
+  </table>
+</md-data-table-container>
