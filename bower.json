@@ -19,6 +19,7 @@
     "angular": "~1.4.8",
     "angular-ui-router": "~0.2.15",
     "angular-material": "~0.11.4",
-    "angular-material-data-table": "~0.8.14"
+    "angular-material-data-table": "~0.8.14",
+    "AngularDevise": "angular-devise#~1.1.0"
   }
 }

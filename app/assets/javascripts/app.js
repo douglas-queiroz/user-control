@@ -1,4 +1,5 @@
-angular.module('userControl',['ui.router', 'templates', 'ngAria', 'ngAnimate', 'ngMaterial', 'md.data.table'])
+angular.module('userControl',['ui.router', 'templates', 'ngAria', 'ngAnimate', 
+								'ngMaterial', 'md.data.table', 'Devise'])
 	.config([
 		'$stateProvider',
 		'$urlRouterProvider',
@@ -21,6 +22,16 @@ angular.module('userControl',['ui.router', 'templates', 'ngAria', 'ngAnimate', '
 			    	user: ['$stateParams', 'UserService', function($stateParams, UserService) {
 					return UserService.get($stateParams.id);
 				}]}
+			})
+			.state('login', {
+				url: '/login',
+				templateUrl: 'auth/_login.html',
+				controller: 'AuthController'
+			})
+			.state('register', {
+				url: '/register',
+				templateUrl: 'auth/_register.html',
+				controller: 'AuthController'
 			});
 
 			$urlRouterProvider.otherwise('/')

@@ -5,4 +5,5 @@
 //= require angular-animate
 //= require angular-material
 //= require angular-material-data-table
+//= require AngularDevise
 //= require_tree . 

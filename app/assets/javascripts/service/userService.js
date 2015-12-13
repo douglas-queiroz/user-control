@@ -5,16 +5,9 @@ angular.module('userControl')
 			users: []
 		};
 		o.getAll = function(){
-			angular.copy([
-			{nome: 'Teste', email: 'teste@teste.com', sexo: 'Masculino', nascimento: '05/12/1989'},
-			{nome: 'Teste', email: 'teste@teste.com', sexo: 'Masculino', nascimento: '05/12/1989'},
-			{nome: 'Teste', email: 'teste@teste.com', sexo: 'Masculino', nascimento: '05/12/1989'},
-			{nome: 'Teste', email: 'teste@teste.com', sexo: 'Masculino', nascimento: '05/12/1989'},
-			{nome: 'Teste', email: 'teste@teste.com', sexo: 'Masculino', nascimento: '05/12/1989'},
-			{nome: 'Teste', email: 'teste@teste.com', sexo: 'Masculino', nascimento: '05/12/1989'},
-			{nome: 'Teste', email: 'teste@teste.com', sexo: 'Masculino', nascimento: '05/12/1989'},
-			{nome: 'Teste', email: 'teste@teste.com', sexo: 'Masculino', nascimento: '05/12/1989'},
-			{nome: 'Teste', email: 'teste@teste.com', sexo: 'Masculino', nascimento: '05/12/1989'}], o.users);
+			return $http.get('/users.json').success(function(data){
+				angular.copy(data, o.users);
+			});
 		};
 
 		o.get = function(id){
