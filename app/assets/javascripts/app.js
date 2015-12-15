@@ -12,7 +12,12 @@ angular.module('userControl',['ui.router', 'templates', 'ngAria', 'ngAnimate',
 				resolve: {
 				  userPromise: ['UserService', function(UserService){
 				    return UserService.getAll();
-				}]}
+				}]},
+				onEnter: ['$state', 'Auth', function($state, Auth) {
+					if (!Auth.isAuthenticated()) {
+						$state.go('login')
+					}
+				}]
 			})
 			.state('showUser', {
 				url: '/user/show/{id}',
@@ -21,12 +26,31 @@ angular.module('userControl',['ui.router', 'templates', 'ngAria', 'ngAnimate',
 				resolve: {
 			    	user: ['$stateParams', 'UserService', function($stateParams, UserService) {
 					return UserService.get($stateParams.id);
-				}]}
+				}]},
+				onEnter: ['$state', 'Auth', function($state, Auth) {
+					if (!Auth.isAuthenticated()) {
+						$state.go('login')
+					}
+				}]
 			})
 			.state('createUser', {
 				url: '/user/new',
 				templateUrl: 'newuser/_newUser.html',
-				controller: 'NewUserController'
+				controller: 'NewUserController',
+				onEnter: ['$state', 'Auth', function($state, Auth) {
+					if (!Auth.isAuthenticated()) {
+						$state.go('login')
+					}
+				}]
+			})
+			.state('editUser', {
+				url: '/user/edit/{id}',
+				templateUrl: 'newuser/_newUser.html',
+				controller: 'EditUserController',
+				resolve: {
+			    	user: ['$stateParams', 'UserService', function($stateParams, UserService) {
+					return UserService.get($stateParams.id);
+				}]}
 			})
 			.state('login', {
 				url: '/login',

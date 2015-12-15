@@ -5,6 +5,7 @@ angular.module('userControl')
 		'UserService',
 		'user',
 		function($scope, $stateParams, UserService, user){
+			console.log(user);
 			$scope.user = user;
 			$scope.topDirections = ['left', 'up'];
 			$scope.bottomDirections = ['down', 'right'];

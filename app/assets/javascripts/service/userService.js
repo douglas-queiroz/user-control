@@ -11,12 +11,17 @@ angular.module('userControl')
 		};
 
 		o.get = function(id){
-			return o.users[id];
+			return $http.get('/admin/users/'+id+'.json').then(function(res){
+				return res.data;
+			});
 		}
 		o.create = function(user){
 			return $http.post('/admin/users.json', user).success(function(data){
 				o.users.push(data);
 			});
+		}
+		o.update = function(user){
+			return $http.put('/admin/users/'+user.id+'.json', user);
 		}
 
 		return o;

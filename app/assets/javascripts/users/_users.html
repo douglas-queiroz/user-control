@@ -18,7 +18,7 @@
     </thead>
     <tbody>
       <tr md-auto-select ng-repeat="user in users">
-        <td><a href="#/user/{{$index}}">{{user.name}}</a></td>
+        <td><a href="#/user/show/{{user.id}}">{{user.name}}</a></td>
         <td>{{user.email}}</td>
         <td>{{user.sex}}</td>
         <td>{{user.birth_date}}</td>

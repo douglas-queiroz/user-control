@@ -1,8 +1,9 @@
 angular.module('userControl')
 	.controller('NavController', [
 	'$scope',
+	'$state',
 	'Auth',
-	function($scope, Auth){
+	function($scope, $state, Auth){
 		$scope.signedIn = Auth.isAuthenticated;
   		$scope.logout = Auth.logout;
 
@@ -19,6 +20,7 @@ angular.module('userControl')
 
 		$scope.$on('devise:logout', function (e, user){
 			$scope.user = {};
+			$state.go('login');
 		});
 	}
 ]);

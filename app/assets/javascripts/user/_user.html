@@ -3,7 +3,7 @@
 <md-content layout-padding layout-gt-sm="row">
     <md-input-container>
       <label>Title</label>
-      <input ng-model="user.nome">
+      <input ng-model="user.name">
     </md-input-container>
     <md-input-container>
       <label>Email</label>
@@ -13,6 +13,6 @@
 
 <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
 	<md-button class="md-raised" href="#/">Back</md-button>
-	<md-button class="md-raised md-primary">Edit</md-button>
+	<md-button class="md-raised md-primary" href="#/user/edit/{{user.id}}">Edit</md-button>
 	<md-button class="md-raised md-warn">Delete</md-button>
 </section>
