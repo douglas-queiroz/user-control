@@ -11,7 +11,7 @@ angular.module('userControl')
 			}
 
 			$scope.saveUser = function(){
-				UserService.save($scope.user);
+				UserService.create($scope.user);
 				$state.go('home');
 			}
 			

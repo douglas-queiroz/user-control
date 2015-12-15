@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update]
+  before_action :set_user, only: [:show, :update, :destroy]
 
   def index
   	respond_with User.all
@@ -15,8 +15,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    
     respond_with @user.update(user_params)
+  end
+
+  def destroy
+    respond_with @user.destroy
   end
 
   private

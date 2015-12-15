@@ -24,5 +24,9 @@ angular.module('userControl')
 			return $http.put('/admin/users/'+user.id+'.json', user);
 		}
 
+		o.destroy = function(user){
+			return $http.delete('/admin/users/'+user.id+'.json');
+		}
+
 		return o;
 	}])
