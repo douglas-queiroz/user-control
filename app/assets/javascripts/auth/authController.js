@@ -3,17 +3,21 @@ angular.module('userControl')
 	'$scope',
 	'$state',
 	'Auth',
-	function($scope, $state, Auth){
+	'$mdToast',
+	function($scope, $state, Auth, $mdToast){
 		 $scope.login = function() {
-		    Auth.login($scope.user).then(function(){
-		      $state.go('home');
-		    });
-		  };
-
-		  $scope.register = function() {
-		    Auth.register($scope.user).then(function(){
-		      $state.go('home');
-		    });
+		    Auth.login($scope.user)
+		    .then(function(response){
+		      if (response.error != undefined) {
+		      	$mdToast.show(
+			      $mdToast.simple()
+			        .content(response.error )
+			        .hideDelay(3000)
+			    );
+		      }else{
+		      	$state.go('home');
+		      }
+		    })
 		  };
 	}
 ]);
