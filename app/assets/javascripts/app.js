@@ -3,35 +3,28 @@ angular.module('userControl',['ui.router', 'templates', 'ngAria', 'ngAnimate',
 	.config([
 		'$stateProvider',
 		'$urlRouterProvider',
-		function($stateProvider, $urlRouterProvider){
+		'$httpProvider',
+		function($stateProvider, $urlRouterProvider, $httpProvider){
 			$stateProvider
 			.state('home', {
 				url: '/',
 				templateUrl: 'users/_users.html',
 				controller: 'UsersController',
+				authenticate: true,
 				resolve: {
 				  userPromise: ['UserService', function(UserService){
 				    return UserService.getAll();
-				}]},
-				onEnter: ['$state', 'Auth', function($state, Auth) {
-					if (!Auth.isAuthenticated()) {
-						$state.go('login')
-					}
-				}]
+				}]}
 			})
 			.state('showUser', {
 				url: '/user/show/{id}',
 				templateUrl: 'user/_user.html',
 				controller: 'UserController',
+				isPublic: false,
 				resolve: {
 			    	user: ['$stateParams', 'UserService', function($stateParams, UserService) {
 					return UserService.get($stateParams.id);
-				}]},
-				onEnter: ['$state', 'Auth', function($state, Auth) {
-					if (!Auth.isAuthenticated()) {
-						$state.go('login')
-					}
-				}]
+				}]}
 			})
 			.state('createUser', {
 				url: '/user/new',
@@ -59,4 +52,17 @@ angular.module('userControl',['ui.router', 'templates', 'ngAria', 'ngAnimate',
 			});
 
 			$urlRouterProvider.otherwise('/')
+
+			$httpProvider.interceptors.push(function($q, $location, $rootScope) {
+			  return {
+			    'responseError': function(rejection) {
+			      if (rejection.status == 401) {
+			        $rootScope.$broadcast('event:unauthorized');
+			        $location.path('/login')
+			        return rejection;
+			      }
+			        return $q.reject(rejection);        
+			      }
+			    };
+			  });
 		}])
