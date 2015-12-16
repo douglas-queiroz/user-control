@@ -28,7 +28,7 @@ angular.module('userControl',['ui.router', 'templates', 'ngAria', 'ngAnimate',
 			})
 			.state('createUser', {
 				url: '/user/new',
-				templateUrl: 'newuser/_newUser.html',
+				templateUrl: 'newuser/_formUser.html',
 				controller: 'NewUserController',
 				onEnter: ['$state', 'Auth', function($state, Auth) {
 					if (!Auth.isAuthenticated()) {
@@ -38,7 +38,7 @@ angular.module('userControl',['ui.router', 'templates', 'ngAria', 'ngAnimate',
 			})
 			.state('editUser', {
 				url: '/user/edit/{id}',
-				templateUrl: 'newuser/_newUser.html',
+				templateUrl: 'newuser/_formUser.html',
 				controller: 'EditUserController',
 				resolve: {
 			    	user: ['$stateParams', 'UserService', function($stateParams, UserService) {

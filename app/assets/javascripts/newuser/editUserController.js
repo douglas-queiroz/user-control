@@ -9,7 +9,7 @@ angular.module('userControl')
 			$scope.user = user;
 
 			$scope.loadSex = function(){
-				$scope.sexs = [{id:1, value: 'Male'},{id:2, value: 'Female'}]
+				$scope.sexs = UserService.loadSex();
 			}
 
 			$scope.saveUser = function(){

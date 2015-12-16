@@ -28,8 +28,12 @@ angular.module('userControl')
 			return $http.delete('/admin/users/'+user.id+'.json');
 		}
 
-		o.toggle_blocked = function(user){
+		o.toggleBlocked = function(user){
 			return $http.put('/admin/users/'+user.id+'/toggle_blocked.json');
+		}
+
+		o.loadSex = function(){
+			return [{id:1, value: 'Male'},{id:2, value: 'Female'}];
 		}
 
 		return o;

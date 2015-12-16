@@ -27,10 +27,19 @@ angular.module('userControl')
 			    });
 		    };
 
-		    $scope.toggle_blocked = function(){
+		    $scope.toggleBlocked = function(){
 		    	UserService.toggle_blocked(user).success(function(data){
 		    		user.is_blocked = !user.is_blocked;
 		    	});
 		    }
+
+		    $scope.getSex = function(id){
+		    	sexs = UserService.loadSex();
+		    	for (var i = 0; i < sexs.length; i++) {
+		    		if(sexs[i].id == id){
+		    			return sexs[i].value;
+		    		}
+		    	};
+			}
 			
 		}])

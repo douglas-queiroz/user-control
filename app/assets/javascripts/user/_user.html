@@ -1,13 +1,17 @@
 <h2 class="md-title">User</h2>
 <md-divider></md-divider>
-<md-content layout-padding layout-gt-sm="row">
+<md-content layout-padding layout-gt-sm="column">
     <md-input-container>
-      <label>Title</label>
-      <input ng-model="user.name">
+      Name: {{user.name}}
     </md-input-container>
     <md-input-container>
-      <label>Email</label>
-      <input ng-model="user.email" type="email">
+      Email: {{user.email}}
+    </md-input-container>
+    <md-input-container>
+      Sex: {{getSex(user.sex)}}
+    </md-input-container>
+    <md-input-container>
+      Birth Date: {{user.birth_date}}
     </md-input-container>
 </md-content>
 
