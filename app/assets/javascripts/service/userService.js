@@ -28,5 +28,9 @@ angular.module('userControl')
 			return $http.delete('/admin/users/'+user.id+'.json');
 		}
 
+		o.toggle_blocked = function(user){
+			return $http.put('/admin/users/'+user.id+'/toggle_blocked.json');
+		}
+
 		return o;
 	}])

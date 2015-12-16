@@ -15,4 +15,6 @@
 	<md-button class="md-raised" href="#/">Back</md-button>
 	<md-button class="md-raised md-primary" href="#/user/edit/{{user.id}}">Edit</md-button>
 	<md-button class="md-raised md-warn" ng-click="showConfirm()">Delete</md-button>
+  <md-button ng-show="user.is_blocked" class="md-raised md-primary" ng-click="toggle_blocked()">Unlock</md-button>
+  <md-button ng-hide="user.is_blocked" class="md-raised md-warn" ng-click="toggle_blocked()">Block</md-button>
 </section>

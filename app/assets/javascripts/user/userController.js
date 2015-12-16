@@ -26,5 +26,11 @@ angular.module('userControl')
 			      // No option
 			    });
 		    };
+
+		    $scope.toggle_blocked = function(){
+		    	UserService.toggle_blocked(user).success(function(data){
+		    		user.is_blocked = !user.is_blocked;
+		    	});
+		    }
 			
 		}])

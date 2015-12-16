@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy, :toggle_blocked]
 
   def index
   	respond_with User.all
@@ -20,6 +20,12 @@ class UsersController < ApplicationController
 
   def destroy
     respond_with @user.destroy
+  end
+
+  def toggle_blocked
+    @user.is_blocked = !@user.is_blocked
+
+    respond_with @user.save
   end
 
   private
